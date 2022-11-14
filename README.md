@@ -1,13 +1,14 @@
 # Project Name
-Context and date
-
-Description
+Project 5 FPS Maze 
 
 ## Implementation
-Which features you included
+Added music
 
 ## References
+Kenny Recources 
 
 ## Future Development
+None 
 
 ## Created by
+Max Hanen 
