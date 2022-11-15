@@ -2,7 +2,7 @@
 Project 5 FPS Maze 
 
 ## Implementation
-Added music
+All basic solution and added music
 
 ## References
 Kenny Recources 
