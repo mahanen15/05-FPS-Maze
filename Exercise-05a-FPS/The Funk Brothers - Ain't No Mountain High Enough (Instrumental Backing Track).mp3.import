@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The Funk Brothers - Ain't No Mountain High Enough (Instrumental Backing Track).mp3-9bc460eeff4f885047bd0380418f726c.mp3str"
+
+[deps]
+
+source_file="res://The Funk Brothers - Ain't No Mountain High Enough (Instrumental Backing Track).mp3"
+dest_files=[ "res://.import/The Funk Brothers - Ain't No Mountain High Enough (Instrumental Backing Track).mp3-9bc460eeff4f885047bd0380418f726c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

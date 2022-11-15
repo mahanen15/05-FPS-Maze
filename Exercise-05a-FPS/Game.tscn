@@ -1,0 +1,201 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Assets/shotgun.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Global.gd" type="Script" id=3]
+[ext_resource path="res://Exit/Exit.gd" type="Script" id=4]
+[ext_resource path="res://UI/Menu.gd" type="Script" id=6]
+[ext_resource path="res://Key/key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://The Funk Brothers - Ain't No Mountain High Enough (Instrumental Backing Track).mp3" type="AudioStream" id=8]
+
+[sub_resource type="PhysicsMaterial" id=13]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.52549, 0.427451, 0.427451, 1 )
+
+[sub_resource type="PlaneMesh" id=1]
+material = SubResource( 5 )
+size = Vector2( 35, 20 )
+
+[sub_resource type="ConvexPolygonShape" id=2]
+margin = 10.0
+points = PoolVector3Array( -1.00542, 0.00546448, -1.00546, -1.00542, 0.00546448, 1.00546, 1.00546, 0.00546448, -1.00546, 1.00546, 0.00546448, 1.00546 )
+
+[sub_resource type="SphereShape" id=6]
+radius = 0.5
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 100, 30, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=8]
+points = PoolVector3Array( -50.1479, -3.14793, -0.647929, 47.1391, 2.8787, 0.5, 47.1391, -2.96154, 0.5, 50.1479, 3.06509, -0.647929, -47.1391, 2.8787, 0.5, 50.1479, -3.14793, -0.647929, -50.1479, 3.06509, -0.647929, -47.1391, -2.96154, 0.5 )
+
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( -50.1479, -3.14793, -0.647929, 47.1391, 2.8787, 0.5, 47.1391, -2.96154, 0.5, 50.1479, 3.06509, -0.647929, -47.1391, 2.8787, 0.5, 50.1479, -3.14793, -0.647929, -50.1479, 3.06509, -0.647929, -47.1391, -2.96154, 0.5 )
+
+[sub_resource type="CubeMesh" id=10]
+size = Vector3( 60, 30, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=11]
+points = PoolVector3Array( -30.0993, -3.09934, -0.599338, 30.0993, 3.0596, 0.592715, 30.0993, -3.09934, 0.592715, 30.0993, 3.0596, -0.599338, -30.0993, 3.0596, 0.592715, 30.0993, -3.09934, -0.599338, -30.0993, -3.09934, 0.592715, -30.0993, 3.0596, -0.599338 )
+
+[sub_resource type="ConvexPolygonShape" id=12]
+points = PoolVector3Array( -30.0993, -3.09934, -0.599338, 30.0993, 3.0596, 0.592715, 30.0993, -3.09934, 0.592715, 30.0993, 3.0596, -0.599338, -30.0993, 3.0596, 0.592715, 30.0993, -3.09934, -0.599338, -30.0993, -3.09934, 0.592715, -30.0993, 3.0596, -0.599338 )
+
+[sub_resource type="CubeMesh" id=14]
+size = Vector3( 30, 30, 2 )
+
+[sub_resource type="ConvexPolygonShape" id=15]
+points = PoolVector3Array( 13.7523, 13.7523, 1, -15.1402, -15.1402, -1.14019, 15.1401, -15.1402, -1.14019, -15.1402, 15.1402, -1.14019, -13.7523, -13.7523, 1, 15.1401, 15.1402, -1.14019, 13.7523, -13.7523, 1, -13.7523, 13.7523, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=16]
+points = PoolVector3Array( 13.7523, 13.7523, 1, -15.1402, -15.1402, -1.14019, 15.1401, -15.1402, -1.14019, -15.1402, 15.1402, -1.14019, -13.7523, -13.7523, 1, 15.1401, 15.1402, -1.14019, 13.7523, -13.7523, 1, -13.7523, 13.7523, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=17]
+points = PoolVector3Array( 13.7523, 13.7523, 1, -15.1402, -15.1402, -1.14019, 15.1401, -15.1402, -1.14019, -15.1402, 15.1402, -1.14019, -13.7523, -13.7523, 1, 15.1401, 15.1402, -1.14019, 13.7523, -13.7523, 1, -13.7523, 13.7523, 1 )
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.5
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.4, 0.1, 0.4 )
+
+[node name="Game" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Maze" type="Spatial" parent="."]
+
+[node name="Ground" type="StaticBody" parent="Maze"]
+physics_material_override = SubResource( 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Maze/Ground"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0 )
+mesh = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Maze/Ground"]
+transform = Transform( 50, 0, 0, 0, 0, 0, 0, 0, 30, 0.353246, 0.214732, 0.344775 )
+shape = SubResource( 2 )
+
+[node name="Spatial" type="Spatial" parent="Maze/Ground"]
+
+[node name="key" parent="Maze" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0321, 9.78424, 16.0737 )
+
+[node name="Exit" type="Area" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.095 )
+script = ExtResource( 4 )
+
+[node name="Light" type="OmniLight" parent="Maze/Exit"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.556211, 0 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 10.0
+omni_attenuation = 1.8025
+
+[node name="CollisionShape" type="CollisionShape" parent="Maze/Exit"]
+shape = SubResource( 6 )
+
+[node name="Walls" type="StaticBody" parent="Maze"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 29.376 )
+mesh = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 29.376 )
+shape = SubResource( 8 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.24671, -29.4899 )
+mesh = SubResource( 7 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.24671, -29.4899 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( 0.0235947, 0, -0.999722, 0, 1, 0, 0.999722, 0, 0.0235947, -49.8269, 3.42085, 0.0443935 )
+mesh = SubResource( 10 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( 0.0730989, 0, -0.997325, 0, 1, 0, 0.997325, 0, 0.0730989, -46.8258, 3.03082, 0.0443935 )
+shape = SubResource( 11 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( -0.00479963, 0, -0.999988, 0, 1, 0, 0.999988, 0, -0.00479963, 50.3896, 3.03082, -0.0806217 )
+mesh = SubResource( 10 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( -0.00479963, 0, -0.999988, 0, 1, 0, 0.999988, 0, -0.00479963, 50.3896, 3.03082, -0.0806217 )
+shape = SubResource( 12 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="Maze/Walls"]
+mesh = SubResource( 14 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Maze/Walls"]
+shape = SubResource( 15 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( 0.0158993, 0, -0.999874, 0, 1, 0, 0.999874, 0, 0.0158993, -14.2913, 0.0849552, -15.979 )
+mesh = SubResource( 14 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( 0.0158993, 0, -0.999874, 0, 1, 0, 0.999874, 0, 0.0158993, -14.2913, 0.0849552, -15.979 )
+shape = SubResource( 16 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="Maze/Walls"]
+transform = Transform( -0.00249581, 0, -0.999997, 0, 1, 0, 0.999997, 0, -0.00249581, -14.0365, 0.0849552, 0.0415554 )
+mesh = SubResource( 14 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="Maze/Walls"]
+transform = Transform( -0.00249581, 0, -0.999997, 0, 1, 0, 0.999997, 0, -0.00249581, -14.0365, 0.0849552, 0.0415554 )
+shape = SubResource( 17 )
+
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.2082, 2.92236, 0 )
+script = ExtResource( 2 )
+
+[node name="Body" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.1, 0 )
+shape = SubResource( 3 )
+
+[node name="Feet" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
+shape = SubResource( 4 )
+
+[node name="Pivot" type="Spatial" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
+
+[node name="Camera" type="Camera" parent="Player/Pivot"]
+
+[node name="Gun" type="MeshInstance" parent="Player/Pivot"]
+transform = Transform( -8, 6.99382e-07, 0, 6.99382e-07, 8, 6.99382e-07, 6.11419e-14, 6.99382e-07, -8, 0.2, -0.15, -0.3 )
+mesh = ExtResource( 1 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="UI"]
+pause_mode = 2
+physics_interpolation_mode = 2
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="UI/Menu"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.752941 )
+
+[node name="Quit" type="Button" parent="UI/Menu/ColorRect"]
+margin_left = 462.0
+margin_top = 500.0
+margin_right = 562.0
+margin_bottom = 540.0
+text = "Quit game"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[connection signal="body_entered" from="Maze/Exit" to="Maze/Exit" method="_on_Exit_body_entered"]
+[connection signal="pressed" from="UI/Menu/ColorRect/Quit" to="UI/Menu" method="_on_Quit_pressed"]
